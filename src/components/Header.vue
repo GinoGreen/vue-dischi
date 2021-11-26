@@ -15,7 +15,7 @@ export default {
 @import '../assets/style/vars.scss';
 
    header {
-      height: 80px;
+      height: 70px;
       padding: 10px;
 
       background-color: $card-color;
