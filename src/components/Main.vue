@@ -1,13 +1,10 @@
 <template>
    <main>
       <div class="myContainer">
-         <Album/>
-         <Album/>
-         <Album/>
-         <Album/>
-         <Album/>
-         <Album/>
-         <Album/>
+         <Album
+            v-for="(album, index) in albums" :key="index"
+            :album="album"
+         />
       </div>
    </main>
 </template>
@@ -31,8 +28,11 @@ export default {
    methods: {
       getApi() {
          axios.get(this.apiURL)
-            .then( (response) => {
-               console.log(response);
+            .then( response => {
+
+               this.albums = response.data.response;
+               console.log(this.albums);
+
             })
             .catch( error => {
                console.log(error);
@@ -40,7 +40,7 @@ export default {
       }
    },
    mounted() {
-      this.getApi;
+      this.getApi();
    }
 }
 </script>
