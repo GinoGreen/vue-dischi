@@ -14,13 +14,33 @@
 
 <script>
 
-// import axios from 'axios';
+import axios from 'axios';
 import Album from './Album.vue';
 
 export default {
    name: 'Main',
    components: {
       Album
+   },
+   data() {
+      return {
+         albums: [],
+         apiURL: 'https://flynn.boolean.careers/exercises/api/array/music'
+      }
+   },
+   methods: {
+      getApi() {
+         axios.get(this.apiURL)
+            .then( (response) => {
+               console.log(response);
+            })
+            .catch( error => {
+               console.log(error);
+            });
+      }
+   },
+   mounted() {
+      this.getApi;
    }
 }
 </script>
