@@ -1,7 +1,7 @@
 <template>
   <div id="main-wrapper">
     <Header/>
-    <Main/>
+    <Main :sendGenr="genr"/>
   </div>
 </template>
 

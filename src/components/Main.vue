@@ -27,6 +27,9 @@ import Album from './Album.vue';
 
 export default {
    name: 'Main',
+   props: {
+      genr: String
+   },
    components: {
       Album,
       Loading
@@ -40,13 +43,14 @@ export default {
    },
    methods: {
       getApi() {
-
+         console.log(this.genr);
          this.isLoading = true;
 
          axios.get(this.apiURL)
             .then( response => {
 
                this.albums = response.data.response;
+               console.log(this.albums);
                this.isLoading = false;
             })
             .catch( error => {
